@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="/images/logo-3.png">
+    <title>Dream Destination</title>
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- review slipper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>   
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+</head>
+<body>
+    <!-- Header section starts -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <a href="#" class="logo"><span>D</span>ream <span>D</span>estination</a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#book">Book</a>
+            <a href="#packages">Packages</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+            <a href="#ourpartners">Our Partners</a>
+            <a href="#about-us">About Us</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="fas fa-user" id="login-btn"><span> Login</span></i>
+        </div>
+
+        <form action="" class="search-bar-container" onsubmit="return googleSearch()">
+            <input type="search" id="search-bar" placeholder="Search here...">
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+    </header>
+    <!-- Header section ends -->
+
+  <!-- Login form -->
+<div class="login-form-container">
+    <i class="fas fa-times" id="login-form-close"></i>
+    <form onsubmit="return validateLoginForm();">
+        <h3>Login</h3>
+        <input type="email" class="box" id="login-email" placeholder="Enter your email">
+        <input type="password" class="box" id="login-password" placeholder="Enter your password">
+        <button class="btn" type="submit">Login</button>
+        <input type="checkbox" id="remember">
+        <label for="remember">Remember me</label>
+        <p>Forgot password? <a href="#" id="open-forgot-password">Click here</a></p>
+        <p>Don't have an account? <a href="#" id="open-register-form">Register now</a></p>
+        <p id="login-message"></p>
+    </form>
+</div>
+<div id="login-message" class="login-message"></div>
+
+
+<!-- Register form -->
+<div class="register-form-container">
+    <i class="fas fa-times" id="register-form-close"></i>
+    <form onsubmit="return validateRegistrationForm();">
+        <h3>Register Now</h3>
+        <input type="text" class="box" id="register-username" placeholder="Enter your name">
+        <input type="email" class="box" id="register-email" placeholder="Enter your email">
+        <input type="password" class="box" id="register-password" placeholder="Enter your password">
+        <input type="password" class="box" id="register-confirm-password" placeholder="Confirm password">
+        <button class="btn" type="submit">Register</button>
+        <input type="checkbox" id="agree">
+        <label for="agree">I agree to the terms & conditions</label>
+        <p>Already have an account? <a href="#" id="open-login-form">Log in</a></p>
+    </form>
+</div>
+
+<!-- Forgot Password form -->
+<div class="forgot-password-form-container">
+    <i class="fas fa-times" id="forgot-password-form-close"></i>
+    <form onsubmit="return validateForgotPasswordForm();">
+        <h3>Forgot Password</h3>
+        <input type="email" class="box" id="forgot-password-email" placeholder="Enter your email">
+        <input type="password" class="box" id="new-password" placeholder="Enter new password">
+        <input type="password" class="box" id="confirm-new-password" placeholder="Confirm new password">
+        <button class="btn" type="submit">Submit</button>
+        <p>Already have an account? <a href="#" id="back-to-login">Log in</a></p>
+        <p id="forgot-password-message" style="color: red;"></p>
+    </form>
+</div>
+<!-- home sections starts -->.
+       <section class="home" id="home">
+        <div class="content">
+            <h3>Adventure is Worthwhile</h3>
+            <p>Discover new places with us, Adventure Awaits</p>
+            <a href="#gallery" class="btn">Discover more</a>
+        </div>
+        <div class="controls">
+            <span class="vid-btn active" data-src="/images/vid-1.mp4"></span>
+            <span class="vid-btn" data-src="/images/vid-2.mp4"></span>
+            <span class="vid-btn" data-src="/images/vid-3.mp4"></span>
+            <span class="vid-btn" data-src="/images/vid-4.mp4"></span>
+            <span class="vid-btn" data-src="/images/vid-5.mp4"></span>
+
+        </div>
+         <div class="video-container">
+            <video src="/images/vid-1.mp4" id="video-slider" loop autoplay muted></video>
+         </div>
+       </section>
+<!-- home sections ends -->
+
+<!-- booking section starts -->
+   <section class="book" id="book">
+    <h1 class="heading">
+        <span>B</span>
+        <span>O</span>
+        <span>O</span>
+        <span>K</span>
+        <span class="space"></span>
+        <span>N</span>
+        <span>O</span>
+        <span>W</span>
+    </h1>
+
+    <div class="row">
+       <div class="image">
+        <img src="/images/travel_image.jpg" alt="travel image">
+       </div>
+       <form id="bookingForm">
+        <div class="inputBox">
+            <h3>Where to</h3>
+            <input type="text" id="place" placeholder="Place name">
+        </div>
+        <div class="inputBox">
+            <h3>How many</h3>
+            <input type="number" id="guests" placeholder="Number of guests">
+        </div>
+        <div class="inputBox">
+            <h3>Arrivals</h3>
+            <input type="date" id="arrival">
+        </div>
+        <div class="inputBox">
+            <h3>Leaving</h3>
+            <input type="date" id="leaving">
+        </div>
+        <input type="submit" class="btn" value="Book Now">
+    </form>    
+</div>
+   </section>
+<!-- booking section ends -->
+
+ <!-- packages sections starts-->
+   <section class="packages" id="packages">
+    <h1 class="heading">
+        <span>P</span>
+        <span>A</span>
+        <span>C</span>
+        <span>K</span>
+        <span>A</span>
+        <span>G</span>
+        <span>E</span>
+        <span>S</span>
+    </h1>
+    <div class="box-container">
+        <!-- mumbai -->
+        <div class="box">
+            <video src="/images/Mumbai.mp4" loop autoplay muted></video>
+            <div class="content">
+                <h3><i class="fas fa-map-marker-alt"></i> Mumbai</h3>
+                <p>Mumbai, formerly known as Bombay, is the financial capital of India and one of the most populous cities in the world. It is located on the west coast of India and is known for its bustling lifestyle, diverse culture, and historic landmarks.The Gateway of India,Marine Drive ,etc...</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">$80.00 <span>$120.00</span></div>
+                <a href="#book" class="btn">Book now</a>
+            </div>
+        </div>
+        <!-- sydney -->
+        <div class="box">
+            <video src="/images/Australia.mp4" loop autoplay muted></video>
+            <div class="content">
+                <h3><i class="fas fa-map-marker-alt"></i> Sydney</h3>
+                <p>Sydney is Australia's largest city and the capital of New South Wales. It is known for its stunning harbour, iconic landmarks, and vibrant culture. With beautiful beaches, world-famous architecture, and a dynamic food scene, Sydney is a top destination for travelers.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">$100.00 <span>$120.00</span></div>
+                <a href="#book" class="btn">Book now</a>
+            </div>
+        </div>
+        <!-- hawaii -->
+        <div class="box">
+            <video src="/images/Hawaii.mp4" loop autoplay muted></video>
+            <div class="content">
+                <h3><i class="fas fa-map-marker-alt"></i> Hawaii</h3>
+                <p>Hawaii is an archipelago in the central Pacific Ocean, renowned for its breathtaking landscapes, lush tropical forests, and vibrant culture. With its pristine beaches, active volcanoes, and rich Polynesian heritage, Hawaii offers a unique blend of natural beauty and adventure.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">$110.00 <span>$120.00</span></div>
+                <a href="#book" class="btn">Book now</a>
+            </div>
+        </div>
+        <!-- egypt -->
+        <div class="box">
+            <video src="/images/Egypt.mp4" loop autoplay muted></video>
+            <div class="content">
+                <h3><i class="fas fa-map-marker-alt"></i> Egypt</h3>
+                <p>Egypt is a country in northeastern Africa, famous for its ancient civilization and remarkable historical landmarks. Home to the iconic pyramids, the Sphinx, and the Nile River, Egypt boasts a rich tapestry of culture and history that attracts travelers seeking to explore the wonders of the past and the vibrant modern life of its cities. The Pyramids of Giza,The Nile River.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">$120.00 <span>$150.00</span></div>
+                <a href="#book" class="btn">Book now</a>
+            </div>
+        </div>
+        <!-- tokyo -->
+        <div class="box">
+            <video src="/images/Tokyo.mp4" loop autoplay muted></video>
+            <div class="content">
+                <h3><i class="fas fa-map-marker-alt"></i> Tokyo</h3>
+                 <p>Tokyo, the bustling capital of Japan, is a city that harmoniously blends tradition and innovation. Known for its towering skyscrapers, historic temples, and vibrant neighborhoods, Tokyo offers a unique cultural experience with a dynamic food scene and cutting-edge technology. It is a top destination for travelers seeking an immersive urban experience filled with endless exploration.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">$150.00 <span>$180.00</span></div>
+                <a href="#book" class="btn">Book now</a>
+            </div>
+        </div>
+        <!-- switzerland -->
+        <div class="box">
+            <video src="/images/Switzerland.mp4" loop autoplay muted></video>
+            <div class="content">
+                <h3><i class="fas fa-map-marker-alt"></i> Switzerland</h3>
+                <p>Switzerland is a picturesque landlocked country in Central Europe, celebrated for its stunning Alpine scenery, charming villages, and high quality of life. Known for its efficient public transport, delicious chocolates, and exquisite watches, Switzerland is a premier destination for nature lovers, adventure seekers, and those looking to experience a blend of cultural richness and natural beauty.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">$180.00 <span>$200.00</span></div>
+                <a href="#book" class="btn">Book now</a>
+            </div>
+        </div>
+    </div>
+   </section>
+ <!-- packages sections ends-->
+<!-- services section starts -->
+  <section class="services" id="services">
+    <h1 class="heading">
+        <span>S</span>
+        <span>E</span>
+        <span>R</span>
+        <span>V</span>
+        <span>I</span>
+        <span>C</span>
+        <span>E</span>
+        <span>S</span>
+    </h1>
+    <div class="box-container">
+        <div class="box">
+        <i class="fas fa-hotel"></i>
+            <h3>Affordable Hotels</h3>
+            <p>Traveling doesn’t have to break the bank! We believe that everyone should have the opportunity to explore new destinations without worrying about accommodation costs. Here’s a curated list of affordable hotels across some of the most exciting places in the world, making your travel experience both enjoyable and budget-friendly.</p>
+        </div>
+    <div class="box">
+        <i class="fas fa-utensils"></i>
+            <h3>Foods and Drinks</h3>
+            <p>Travel is a feast for the senses, and one of the most delicious ways to experience a culture is through its food and drinks. Here’s a culinary journey through some of the best local delicacies and beverages in exciting destinations around the world.</p>
+        </div>
+    <div class="box">
+        <i class="fas fa-bullhorn"></i>
+            <h3>Safety Guidelines</h3>
+            <p>Traveling opens up a world of adventure, but it’s important to prioritize safety while exploring new destinations. Here are some essential safety guidelines to keep in mind for a worry-free travel experience.</p>
+        </div>
+    <div class="box">
+        <i class="fas fa-globe-asia"></i>
+            <h3>Around the world</h3>
+            <p>Embark on an unforgettable journey as we take you Around the World! Each destination offers a unique blend of culture, history, and adventure. Here’s a glimpse of some must-visit places and experiences that await you.</p>
+        </div>
+    <div class="box">
+        <i class="fas fa-plane"></i>
+            <h3>Fastest Travel</h3>
+            <p>When time is of the essence, choosing the right mode of transportation can make all the difference in your travel experience. Here’s a guide to the fastest travel options available, along with tips to help you reach your destinations quickly and efficiently.</p>
+        </div>
+    <div class="box">
+        <i class="fas fa-hiking"></i>
+            <h3>Adventures</h3>
+            <p>For thrill-seekers and adventure lovers, the world is full of exciting opportunities to step out of your comfort zone and create unforgettable memories. From heart-pounding outdoor activities to unique experiences, here are some of the best adventures you can embark on around the globe.</p>
+        </div>
+</div>
+  </section>
+
+<!-- services section ends -->
+
+<!-- gallery section starts -->
+  <section class="gallery" id="gallery">
+    <h1 class="heading">
+        <span>G</span>
+        <span>A</span>
+        <span>L</span>
+        <span>L</span>
+        <span>E</span>
+        <span>R</span>
+        <span>Y</span>
+    </h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="/images/gallery-1.jpg" alt="">
+            <div class="content">
+            <h3>Amazing Places on India</h3>
+            <p>Explore the rich history and diverse cultures of India through guided tours of historical landmarks like Taj Mahal, Jaipur’s forts, and Kerala’s backwaters.</p>
+            <a href="https://www.youtube.com/watch?v=IgAnj6r1O48" class="btn" target="_blank">See more</a>
+        </div>
+    </div>
+        <div class="box">
+            <img src="/images/gallery-2.jpg" alt="">
+            <div class="content">
+            <h3>Amazing Places on Switzerland</h3>
+            <p>Promote activities like skiing, snowboarding, hiking, and mountain biking,etc...</p>
+            <a href="https://www.youtube.com/watch?v=oZRBUBbfIJ8" class="btn" target="_blank">See more</a>
+        </div>
+    </div>
+        <div class="box">
+            <img src="/images/gallery-3.jpg" alt="">
+            <div class="content">
+            <h3>Amazing Places on China</h3>
+            <p> Create tours that focus on the Great Wall, the Terracotta Army, and ancient cities like Xi’an and Beijing.</p>
+            <a href="https://www.youtube.com/watch?v=zQh_rvvVcps" class="btn" target="_blank">See more</a>
+        </div>
+    </div>
+        <div class="box">
+            <img src="/images/gallery-4.jpg" alt="">
+            <div class="content">
+                <h3>Amazing Places on Florida</h3>
+                <p>Offer eco-tours in the Everglades and wildlife experiences in national parks.</p>
+                <a href="https://www.youtube.com/watch?v=MQROYY0dY9A" class="btn" target="_blank">See more</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="/images/gallery-5.jpg" alt="">
+            <div class="content">
+            <h3>Amazing Places on Canada</h3>
+            <p> Create experiences that showcase Canadian wildlife, such as bear watching in British Columbia or whale watching in Quebec.</p>
+            <a href="https://www.youtube.com/watch?v=BHdIQy00_p4" class="btn" target="_blank">See more</a>
+           
+        </div>
+    </div>
+        <div class="box">
+            <img src="/images/gallery-6.jpg" alt="">
+            <div class="content">
+            <h3>Amazing Places on Japan</h3>
+            <p> Organize tours that explore traditional tea ceremonies, sumo wrestling, and geisha culture in Kyoto.</p>
+            <a href="https://www.youtube.com/watch?v=CxuiFNYnEr4" class="btn" target="_blank">See more</a>
+        </div>
+    </div>
+    <div class="box">
+        <img src="/images/gallery-7.jpeg" alt="">
+        <div class="content">
+            <h3>Amazing Places on America</h3>
+            <p> America, renowned for its vibrant cities, natural wonders, and diverse culture. </p>
+             <a href="https://www.youtube.com/watch?v=AneAgyUxBsg" class="btn" target="_blank">See more</a>
+        </div>
+    </div>
+    <div class="box">
+        <img src="/images/gallery-8.jpeg" alt="">
+        <div class="content">
+            <h3>Amazing Places on Africa</h3>
+            <p> A full mile wide, Victoria Falls is one of Africa's most famous sights. </p>
+             <a href="https://www.youtube.com/watch?v=32AciEK2P5Y" class="btn" target="_blank">See more</a>
+        </div>
+    </div>
+
+    </div>
+  </section>
+<!-- gallery section ends -->
+ <!-- review sections starts -->
+  <section class="review" id="review">
+    <h1 class="heading">
+        <span>R</span>
+        <span>E</span>
+        <span>V</span>
+        <span>I</span>
+        <span>E</span>
+        <span>W</span>
+    </h1>
+    <div class="swiper mySwiper review-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="/images/review-1.jpg" alt="">
+                    <h3>Robert Downey Jr.</h3>
+                    <p> "Our tour of the Big Island was absolutely breathtaking! The guide was knowledgeable about the local culture and the volcanoes. The highlight was definitely watching the sunset at Haleakalā; it was like being on another planet. Highly recommend taking the helicopter tour for stunning views!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="/images/review-2.jpg" alt="">
+                    <h3>Chris Patt</h3>
+                    <p>"Exploring the pyramids of Giza was a bucket-list experience. The guided tour was informative, and we loved the stories about ancient Egyptian civilization. Our guide took amazing photos of us at all the key spots!"."The Nile cruise was relaxing, but some stops felt rushed. However, seeing Luxor’s temples was unforgettable.</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="/images/review-3.jpg" alt="">
+                    <h3>Jackie Chan</h3>
+                    <p>"The scenic train ride through the Swiss Alps was one of the most beautiful journeys I've ever taken. The views were out of this world! The tour included stops at charming villages where we enjoyed local cheese and chocolate"."I wish we had more time in Zurich, but the day trips to Interlaken and Lucerne were fantastic. </p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="/images/review-4.jpg" alt="">
+                    <h3>Emma Watson</h3>
+                    <p>"Tokyo is a city that never sleeps! The food tour was a highlight; trying street food in Tsukiji Market was incredible. Our guide was passionate about Japanese cuisine and shared great recommendations for local restaurants"."The cultural experiences, like the tea ceremony, were unique and insightful. However, the city is massive!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="/images/review-5.jpg" alt="">
+                    <h3>Arnold Alois Schwarzenegger</h3>
+                    <p>"Visiting Elephanta Caves was an unforgettable experience. The ferry ride to the island was scenic, and the caves themselves were stunning, filled with intricate sculptures. Make sure to wear comfortable shoes for the hike!"</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="/images/review-6.jpg" alt="">
+                    <h3>Will smith</h3>
+                    <p> "My city tour of Mumbai was a fantastic experience! The guide was incredibly knowledgeable about the history and culture of the city. We visited iconic landmarks like the Gateway of India and Marine Drive, and I loved exploring the bustling streets of Colaba and the local markets."</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+ <!-- review sections ends -->
+  <!-- contact section starts -->
+  <section class="contact" id="contact">
+    <h1 class="heading">
+        <span>C</span>
+        <span>O</span>
+        <span>N</span>
+        <span>T</span>
+        <span>A</span>
+        <span>C</span>
+        <span>T</span>
+    </h1>
+    <div class="row">
+        <div class="image">
+            <img src="/images/contact-1.jpeg" alt="">
+        </div>
+        <form id="contactForm">
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="inputBox">
+                <input type="text" id="mobile" placeholder="Mobile Number" required>
+                <input type="text" id="subject" placeholder="Subject" required>
+            </div>
+            <textarea id="message" placeholder="Message" cols="30" rows="10" required></textarea>
+            <input type="submit" class="btn" value="Send">
+        </form>
+        
+    </div>
+  </section>
+   <!-- brand section starts -->
+<section class="brand-container" id="ourpartners">
+    <h1 class="heading">
+        <span>O</span>
+        <span>U</span>
+        <span>R</span>
+        <span class="space"></span>
+        <span>P</span>
+        <span>A</span>
+        <span>R</span>
+        <span>T</span>
+        <span>N</span>
+        <span>E</span>
+        <span>R</span>
+        <span>S</span>
+    </h1>
+    <div class="swiper mySwiper brand-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="/images/brand-1.jpg" alt="Brand 1"></div>
+            <div class="swiper-slide"><img src="/images/brand-2.jpg" alt="Brand 2"></div>
+            <div class="swiper-slide"><img src="/images/brand-3.jpg" alt="Brand 3"></div>
+            <div class="swiper-slide"><img src="/images/brand-4.jpg" alt="Brand 4"></div>
+            <div class="swiper-slide"><img src="/images/brand-5.jpg" alt="Brand 5"></div>
+            <div class="swiper-slide"><img src="/images/brand-6.jpg" alt="Brand 6"></div>
+            <div class="swiper-slide"><img src="/images/brand-7.jpg" alt="Brand 7"></div>
+        </div>
+    </div>
+</section>
+<!-- brand section ends -->
+ <!-- footer section starts -->
+  <section class="footer" id="about-us">
+    <div class="box-container">
+        <div class="box">
+            <h3>About us</h3>
+            <p>Welcome to Dream Destination!
+              we believe that travel is not just about the destination, but also about the experiences that shape us along the way. Founded in 2010, we are passionate travelers dedicated to providing unforgettable journeys for adventurers, families, and explorers alike.</p>
+        </div>
+        <div class="box">
+            <h3>Branch locations</h3>
+            <a href="#">India</a>
+            <a href="#">USA</a>
+            <a href="#">Japan</a>
+            <a href="#">France</a>
+            <a href="#">China</a>
+        </div>
+        <div class="box">
+            <h3>Quick links</h3>
+            <a href="#home">Home</a>
+            <a href="#book">Book</a>
+            <a href="#packages">Packages</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+            <a href="#ourpartners">Our Partners</a>
+        </div>
+        <div class="box">
+            <h3>Follow us</h3>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Linkedin</a>
+        </div>
+    </div>
+    <h1 class="credit">&copy; <span id="year"></span> Created by <span id="companyceo">Obuli </span> All rights are reserved!</h1>
+  </section>
+
+   <!-- footer section ends -->
+
+<!-- review slipper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link -->
+     <script src="/js/script.js"></script>
+
+     <!-- <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script> -->
+</body>
+</html>
